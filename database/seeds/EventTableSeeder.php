@@ -23,6 +23,7 @@ class EventTableSeeder extends Seeder
           $name = $faker->name;
           $min_date = '1483142400';
           $max_date = '1577750400';
+          $email = $faker->email;
           Event::create([
             'name' => $name,
             'city' => $faker->city,
@@ -30,7 +31,9 @@ class EventTableSeeder extends Seeder
             'description' => $faker->paragraphs(1, true),
             'enabled' => $enabled,
             'started_at' => $faker->dateTimeBetween('-1 year', $max_date, 'UTC'),
-            'slug' => Slug::make($name)
+            'slug' => Slug::make($name),
+            'email' => $email,
+            'avatar' => 'https://api.adorable.io/avatars/200/'.$email.'.io.png'
           ]);
         }
 

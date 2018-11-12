@@ -10580,6 +10580,31 @@ footer {
           justify-content: center;
 }
 
+.avatar,
+.uname {
+  display: inline-block;
+}
+
+.avatar img,
+.uname img {
+  max-width: 50px;
+}
+
+.events-list {
+  list-style-type: none;
+}
+
+.events-list .pane {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 5px;
+}
+
+.events-list .pane:hover {
+  opacity: .6;
+}
+
 .navbar-laravel {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

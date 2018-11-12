@@ -5,9 +5,18 @@
 @endsection
 @section('content')
   <h1>События</h1>
-  <ul>
+  <ul class="events-list">
   @forelse ($events as $event)
-      <li>{!! HTML::link('events/'.$event->slug, $event->name) !!}; started at {{ $event->started_at }}</li>
+      <li>
+        <div class="pane">
+          <div class="avatar">
+            <img src="{{ $event->avatar }}" alt="{{ $event->email }}">
+          </div>
+          <div class="uname">
+            {!! HTML::link('events/'.$event->slug, $event->name) !!}
+          </div>
+        </div>
+        </li>
   @empty
       <p>Нет ни одного события.</p>
   @endforelse
