@@ -1,0 +1,66 @@
+@import 'variables'
+html, body
+  height: 100%
+body
+  color: $black
+  font-family: 'Didact Gothic', sans-serif
+
+.img
+  max-width: 200px
+header
+  background: $orange
+  h1
+    font-weight: bold
+a, .page-link, .page-item.disabled .page-link
+  color: #ff5b1f
+  background-color: unset
+  outline: none
+  &:hover
+    color: #ff5b1f
+.page-item.active .page-link
+  background-color: $black
+  color: $white
+  border: 1px solid $black
+.header-label
+  padding: 30px 30px 30px
+footer
+  position: relative
+  bottom: 0
+  background: $black
+  color: $white
+  height: 50px
+  min-width: 100%
+  line-height: 50px
+  text-align: right
+.top-nav
+  background: $black
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .3)
+  color: $white
+  ul
+    width: 80%
+    display: flex
+    list-style-type: none
+    justify-content: space-between
+    margin: auto
+    height: 50px
+    line-height: 50px
+    li
+      width: 100%
+      cursor: pointer
+      text-align: center
+      &:hover
+        background: lighten($black, 10%)
+        color: $black
+        a
+          text-shadow: 0 5px 10px $black
+      &.active
+        background: $white
+        color: $black
+.main
+  padding: 30px
+  color: $black
+  min-height: calc(100% - 230px)
+.paginator
+  margin: 20px
+  ul
+    justify-content: center
