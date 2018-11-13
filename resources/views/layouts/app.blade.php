@@ -40,6 +40,7 @@
     </div>
   </header>
   <div class="main">
+    @include('flash::message')
     @yield('content')
   </div>
 

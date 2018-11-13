@@ -20,6 +20,7 @@ class EventTableSeeder extends Seeder
         foreach(range(1, 50) as $index)
         {
           $enabled = rand(0, 1);
+          $attendees = rand(1, 5);
           $name = $faker->name;
           $min_date = '1483142400';
           $max_date = '1577750400';
@@ -33,6 +34,7 @@ class EventTableSeeder extends Seeder
             'started_at' => $faker->dateTimeBetween('-1 year', $max_date, 'UTC'),
             'slug' => Slug::make($name),
             'email' => $email,
+            'max_attendees' => $attendees,
             'avatar' => 'https://api.adorable.io/avatars/200/'.$email.'.io.png'
           ]);
         }

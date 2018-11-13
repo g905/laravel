@@ -23,10 +23,7 @@ class Event extends Model
     ];
 
     // Эти поля досутпны для создания методом Event::create(). А если не указать их здесь, то будет ошибка МассАссигнВалуес.
-    protected $fillable = [
-        'name',
-        'venue'
-    ];
+    protected $fillable = ['name', 'venue', 'city'];
 
     public function sluggable()
     {

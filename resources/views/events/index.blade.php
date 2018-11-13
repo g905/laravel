@@ -4,6 +4,7 @@
   <p>Тут список событий</p>
 @endsection
 @section('content')
+  {!! HTML::link(route('events.create'), 'Создать') !!}
   <h1>События</h1>
   <ul class="events-list">
   @forelse ($events as $event)

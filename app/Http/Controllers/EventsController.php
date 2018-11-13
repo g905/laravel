@@ -29,6 +29,7 @@ class EventsController extends Controller
     public function create()
     {
         //
+        return view('events.create');
     }
 
     /**
@@ -40,6 +41,16 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request->input('name'));
+        $event = Event::create([
+            'name' => $request->input('name'),
+            'venue' => $request->input('venue'),
+            'city' => $request->input('city')
+        ]);
+
+        flash('Событие создано')->success();
+
+        return redirect()->route('events.show', $event->slug)->with('event', $event);
     }
 
     /**
