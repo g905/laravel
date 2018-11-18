@@ -34,6 +34,21 @@ class Event extends Model
         ];
     }
 
+    public function whenCreated()
+    {
+        if 
+($this->created_at->isToday())
+        { 
+            return 'today!';
+        } 
+elseif($this->created_at->isTomorrow())
+        {
+            return 'almost today!';
+        } else {
+            return 'Да хуй знает';
+        }
+    }
+
     public function getDescriptionAttribute($value)
     {
         $desc = explode(' ', $value);
@@ -44,9 +59,10 @@ class Event extends Model
     public static function boot()
     {
         parent::boot();
-        static::addGlobalScope('enabled', function (Builder $builder) {
-            $builder->where('enabled', '=', 0);
-        });
+        
+//static::addGlobalScope('enabled', function (Builder $builder) {
+           // $builder->where('enabled', '=', 0);
+        //});
     }
 
 }

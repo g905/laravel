@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Kalnoy\Nestedset\NestedSet;
 
-class AddAttendeesToEventTable extends Migration
+class CreateShopsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,11 @@ class AddAttendeesToEventTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-            
-$table->integer('max_attendees')->nullable();
+        Schema::create('shops', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('cat_name');
+            $table->nestedSet();
+            $table->timestamps();
         });
     }
 
@@ -27,9 +29,6 @@ $table->integer('max_attendees')->nullable();
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-            $table->dropColumn('max_attendees');
-        });
+        Schema::dropIfExists('shops');
     }
 }

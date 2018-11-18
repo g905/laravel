@@ -15,7 +15,8 @@ class AddNullableFieldsToEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             //
-            $table->string('avatar')->nullable()->change();
+            
+$table->string('avatar')->nullable()->default('no')->change();
             $table->string('city')->nullable()->change();
             $table->string('started_at')->nullable()->change();
             $table->string('email')->nullable()->change();

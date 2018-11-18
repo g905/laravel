@@ -10,6 +10,7 @@
   <p>Название: <b>{{ $event->name }}</b></p>
   <p>Город: <b>{{ $event->city }}</b></p>
   <p>Описание: <b>{{ $event->description }}</b></p>
-
+  <p>Когда создано: <b>{{ 
+$event->whenCreated() }}</b></p>
   {{ HTML::link('/events', 'К списку') }}
 @endsection

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAttendeesToEventTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddAttendeesToEventTable extends Migration
      */
     public function up()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-            
-$table->integer('max_attendees')->nullable();
+        Schema::create('category', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->integer('parent');
+            $table->string('name');
+            $table->integer('level');
         });
     }
 
@@ -27,9 +29,6 @@ $table->integer('max_attendees')->nullable();
      */
     public function down()
     {
-        Schema::table('events', function (Blueprint $table) {
-            //
-            $table->dropColumn('max_attendees');
-        });
+        Schema::dropIfExists('category');
     }
 }

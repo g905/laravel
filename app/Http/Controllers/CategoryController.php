@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
-use App\Event;
 
-class EventsController extends Controller
+class CategoryController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +15,9 @@ class EventsController extends Controller
      */
     public function index()
     {
-        //
-        $events = Event::paginate();
-        // $events = [];
-        //dd($events);
-        return view('events.index')->with('events', $events);
+         $cats = Category::All();
+   //
+        return view('cat')->with('tree', $cats);
     }
 
     /**
@@ -29,7 +28,6 @@ class EventsController extends Controller
     public function create()
     {
         //
-        return view('events.create');
     }
 
     /**
@@ -41,39 +39,26 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request->input('name'));
-        $event = Event::create([
-            'name' => $request->input('name'),
-            'venue' => $request->input('venue'),
-            'city' => $request->input('city')
-        ]);
-
-        flash('Событие создано')->success();
-
-        return redirect()->route('events.show', $event->slug)->with('event', $event);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Category $category)
     {
         //
-            //$event = Event::findOrFail($slug);
-            $event = Event::findBySlugOrFail($slug);
-            return view('events.show')->with('event', $event);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
         //
     }
@@ -82,10 +67,10 @@ class EventsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -93,15 +78,11 @@ class EventsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
         //
-        $ev = Event::find($id);
-        $ev->delete();
-        flash('Событие '.$ev->name().' 
-удалено(')->warning();
     }
 }

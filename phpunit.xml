@@ -32,8 +32,9 @@
 
         <env name="DB_HOST" value="localhost"/>
         <env name="DB_PORT" value="3306"/>
-        <env name="DB_DATABASE" value="test_larauser"/>
-        <env name="DB_USERNAME" value="larauser"/>
-        <env name="DB_PASSWORD" value="qwerty"/>
+        <env name="DB_DATABASE" 
+value="./database/database.sqlite"/>
+        <env name="DB_USERNAME" value=""/>
+        <env name="DB_PASSWORD" value=""/>
     </php>
 </phpunit>

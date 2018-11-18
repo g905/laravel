@@ -11,6 +11,7 @@
         "doctrine/dbal": "^2.8",
         "fideloper/proxy": "^4.0",
         "ivanlemeshev/laravel5-cyrillic-slug": "^1.0",
+        "kalnoy/nestedset": "^4.3",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",

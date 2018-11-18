@@ -15,8 +15,10 @@ class AddAvatarToEventsTable extends Migration
     {
         Schema::table('events', function (Blueprint $table) {
             //
-            $table->text('avatar');
-            $table->text('email');
+            
+$table->text('avatar')->default('no');
+            
+$table->text('email')->default('-');
         });
     }
 

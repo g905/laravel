@@ -15,7 +15,6 @@
           </div>
           <div class="uname">
             {!! HTML::link('events/'.$event->slug, $event->name) !!}
-          </div>
         </div>
         </li>
   @empty
